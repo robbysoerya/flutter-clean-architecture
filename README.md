@@ -63,10 +63,10 @@ include with your application.
 The `assets/images` directory contains [resolution-aware
 images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
 
-## Localization
+## L10n
 
 This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+the `lib/src/l10n` directory.
 
 To support additional languages, please visit the tutorial on
 [Internationalizing Flutter
