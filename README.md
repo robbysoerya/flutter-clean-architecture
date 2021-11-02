@@ -4,7 +4,7 @@
 
 ## Folder Structure
 
-'''
+```
 lib/
    src/
       app.dart                    
@@ -51,7 +51,7 @@ lib/
                     profile.dart      
   main.dart
   injection_container.dart
-'''
+```
 
 
 ## Assets
