@@ -21,7 +21,8 @@ lib/
             constants.dart
             router.dart
             theme.dart
-          widgets/                    
+          widgets/
+            custom_snackbar.dart                    
       l10n/
         app_en.arb
         app_id.arb
