@@ -1,6 +1,6 @@
 # Clean Architecture With BLoC
 
-<img src="https://github.com/ResoCoder/flutter-tdd-clean-architecture-course/raw/master/architecture-proposal.png" style="display: block; margin-left: auto; margin-right: auto; width: 75%;"/>
+<img src="./architecture-proposal.png" style="display: block; margin-left: auto; margin-right: auto; width: 75%;"/>
 
 ## Folder Structure
 
