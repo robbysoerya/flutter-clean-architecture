@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:portfolio/src/core/utils/constants.dart';
-import 'package:portfolio/src/core/utils/router.dart' as route;
+import 'package:portfolio/src/core/utils/router.dart' as x;
 import 'package:portfolio/src/core/utils/theme.dart';
 
 /// The Widget that configures your application.
@@ -15,12 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // Providing a restorationScopeId allows the Navigator built by the
-      // MaterialApp to restore the navigation stack when a user leaves and
-      // returns to the app after it has been killed while running in the
-      // background.
-      restorationScopeId: 'app',
-
       // Provide the generated AppLocalizations to the MaterialApp. This
       // allows descendant Widgets to display the correct translations
       // depending on the user's locale.
@@ -48,7 +42,7 @@ class MyApp extends StatelessWidget {
 
       // Define a function to handle named routes in order to support
       // Flutter web url navigation and deep linking.
-      onGenerateRoute: route.Router.generateRoute,
+      onGenerateRoute: x.Router.generateRoute,
       initialRoute: PROFILE_ROUTE,
     );
   }

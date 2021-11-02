@@ -15,7 +15,11 @@ class Router {
                   child: const ProfilePage(),
                 ));
       default:
-        return MaterialPageRoute(builder: (_) => const Text('default'));
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<ProfileBloc>(
+                  create: (_) => sl<ProfileBloc>(),
+                  child: const ProfilePage(),
+                ));
     }
   }
 }
