@@ -1,16 +1,58 @@
 # Clean Architecture With BLoC
 
-A new Flutter project.
+<img src="https://github.com/ResoCoder/flutter-tdd-clean-architecture-course/raw/master/architecture-proposal.png" style="display: block; margin-left: auto; margin-right: auto; width: 75%;"/>
 
-## Getting Started
+## Folder Structure
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+'''
+lib/
+   src/
+      app.dart                    
+      core/
+          error/
+            exceptions.dart
+            failures.darrt
+          network/
+            api_service.dart
+            network_info.dart
+          usecases/
+            usecase.dart
+          utils/
+            constants.dart
+            router.dart
+            theme.dart
+          widgets/                    
+      l10n/
+        app_en.arb
+        app_id.arb
+      screens/
+        profile/
+            data/
+                datasources/
+                    profile_local_datasource.dart
+                    profile_remote_local_datasource.dart
+                models/
+                    profile_model.dart
+                    profile_model.g.dart
+                repositories/
+                    profile_repository_impl.dart
+            domain/
+                entities/
+                repositories/
+                    profile_repository.dart
+                usecases/
+                    profile_usecase.dart    
+            presentation/
+                bloc/
+                    profile_bloc.dart
+                    profile_event.dart
+                    profile_state.dart
+                page/
+                    profile.dart      
+  main.dart
+  injection_container.dart
+'''
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 ## Assets
 

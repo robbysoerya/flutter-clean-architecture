@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/src/core/usecases/usecase.dart';
-import 'package:portfolio/src/screens/profile/data/model/profile_model.dart';
+import 'package:portfolio/src/screens/profile/data/models/profile_model.dart';
 import 'package:portfolio/src/screens/profile/domain/usecases/profile_usecase.dart';
 
 part 'profile_event.dart';

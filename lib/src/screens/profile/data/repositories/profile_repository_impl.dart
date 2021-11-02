@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:portfolio/src/core/network/network_info.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_remote_local_datasource.dart';
-import 'package:portfolio/src/screens/profile/data/model/profile_model.dart';
+import 'package:portfolio/src/screens/profile/data/models/profile_model.dart';
 import 'package:portfolio/src/screens/profile/domain/repositories/profile_repository.dart';
 
 class ProfileRepositoryImpl implements ProfileRepository {
