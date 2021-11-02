@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:portfolio/src/core/network/api_service.dart';
-import 'package:portfolio/src/core/network/network_info.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_remote_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/repositories/profile_repository_impl.dart';
@@ -21,19 +20,13 @@ Future<void> init() async {
 
 // Repositories
   sl.registerLazySingleton<ProfileRepository>(() => ProfileRepositoryImpl(
-      profileLocalDataSource: sl(),
-      profileRemoteDataSource: sl(),
-      networkInfo: sl()));
+      profileLocalDataSource: sl(), profileRemoteDataSource: sl()));
 
 // Data sources
   sl.registerLazySingleton<ProfileLocalDataSource>(
       () => ProfileLocalDataSourceImpl(sharedPreferences: sl()));
   sl.registerLazySingleton<ProfileRemoteDataSource>(
       () => ProfileRemoteDataSourceImpl(apiService: sl()));
-
-// Core
-  sl.registerLazySingleton<NetworkInfo>(
-      () => NetworkInfoImpl(internetConnectionChecker: sl()));
 
 // External
   final SharedPreferences sharedPreferences =
