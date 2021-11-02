@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:portfolio/src/core/network/api_service.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_remote_local_datasource.dart';
@@ -32,6 +31,5 @@ Future<void> init() async {
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
-  sl.registerLazySingleton(() => InternetConnectionChecker());
   sl.registerLazySingleton(() => ApiService());
 }
