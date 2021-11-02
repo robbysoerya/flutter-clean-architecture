@@ -16,11 +16,12 @@ class Projects {
 
 @JsonSerializable()
 class Project {
-  Project(this.title, this.description, this.link);
+  Project(this.title, this.description, this.link, this.image);
 
   String title;
   String description;
   String link;
+  String image;
 
   factory Project.fromJson(Map<String, dynamic> json) =>
       _$ProjectFromJson(json);

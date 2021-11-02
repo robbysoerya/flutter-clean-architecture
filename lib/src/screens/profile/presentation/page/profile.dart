@@ -59,8 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               const SizedBox(height: 24.0),
-              _buildListProjects(state),
-              const SizedBox(height: 24.0),
+              _buildListProjects(state)
             ],
           );
         }
@@ -70,34 +69,30 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildListProjects(ProfileLoadSuccess state) {
-    return GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemCount: state.projects.project.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () => launch(state.projects.project[index].link),
-            child: Card(
-              color: Colors.red[200],
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    state.projects.project[index].title,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(color: CustomColor.white),
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.2,
+      color: CustomColor.white,
+      padding: const EdgeInsets.all(16.0),
+      child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+            childAspectRatio: 2 / 1,
+            mainAxisExtent: 150,
+          ),
+          itemCount: state.projects.project.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+                onTap: () => launch(state.projects.project[index].link),
+                child: Image.network(
+                  state.projects.project[index].image,
+                  width: 150,
+                ));
+          }),
+    );
   }
 
   Widget _buildHeader() {
@@ -113,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 CircleAvatar(
                   radius: 96.0,
                   child: ClipOval(
-                    child: Image.asset('assets/images/me.jpeg'),
+                    child: Image.asset(PROFILE_PHOTO),
                   ),
                 ),
                 const SizedBox(height: 24.0),
@@ -124,13 +119,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 24.0),
                 Text(
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                  style: Theme.of(context).textTheme.bodyText2,
+                  '"In some ways, programming is like painting. You start with a blank canvas and certain basic raw materials. You use a combination of science, art, and craft to determine what to do with them." - Andrew Hunt',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(fontStyle: FontStyle.italic),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24.0),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => launch(CV),
                   child: const Text('Download CV'),
                 ),
                 const SizedBox(height: 16.0),

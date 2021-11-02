@@ -8,3 +8,8 @@ const String PROFILE_ROUTE = '/profile';
 const String INSTAGRAM = 'https://instagram.com/robbysoerya';
 const String GITHUB = 'https://github.com/robbysoerya';
 const String LINKEDIN = 'https://id.linkedin.com/in/robbysoerya';
+
+// assets
+const String PROFILE_PHOTO = 'assets/images/me.jpeg';
+const String CV =
+    'https://bisain.id/assets/assets/documents/CV_RobbySuryaPratama.pdf';
