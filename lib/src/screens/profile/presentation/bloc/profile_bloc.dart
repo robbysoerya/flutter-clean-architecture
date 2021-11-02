@@ -16,6 +16,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   void _onProfileStarted(
       ProfileStarted event, Emitter<ProfileState> emit) async {
+    emit(ProfileLoadInProgress());
     final resp = await fetchProjects.call(NoParams());
     final updateState = resp.fold(
         (l) => const ProfileLoadFailure(message: 'Coba lagi'),
