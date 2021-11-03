@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/core/utils/theme.dart';
+import 'package:portfolio/src/core/utils/constants.dart';
 
 class CustomSnackBar {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -11,7 +11,7 @@ class CustomSnackBar {
   });
 
   void showErrorSnackBar(final msg) {
-    showSnackBar(text: "Error: $msg", color: CustomColor.snackBarColor);
+    showSnackBar(text: "Error: $msg", color: Palette.snackBarColor);
   }
 
   ScaffoldMessengerState get _state {

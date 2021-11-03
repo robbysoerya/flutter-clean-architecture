@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/core/utils/theme.dart';
+import 'package:portfolio/src/core/utils/constants.dart';
 
 enum ThemeEnum {
   LightTheme,
@@ -22,17 +22,17 @@ class CustomTheme {
       headline1: TextStyle(
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
-        color: CustomColor.fontBlack,
+        color: Palette.fontBlack,
       ),
       headline2: TextStyle(
         fontSize: 18.0,
         fontWeight: FontWeight.bold,
-        color: CustomColor.fontBlack,
+        color: Palette.fontBlack,
       ),
-      bodyText1: TextStyle(fontSize: 16.0, color: CustomColor.fontBlack),
-      bodyText2: TextStyle(fontSize: 16.0, color: CustomColor.fontBlack),
+      bodyText1: TextStyle(fontSize: 16.0, color: Palette.fontBlack),
+      bodyText2: TextStyle(fontSize: 16.0, color: Palette.fontBlack),
       button: TextStyle(
-        color: CustomColor.fontBlack,
+        color: Palette.fontBlack,
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w500,
         fontSize: 14,
@@ -56,17 +56,17 @@ class CustomTheme {
       headline1: TextStyle(
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
-        color: CustomColor.fontWhite,
+        color: Palette.fontWhite,
       ),
       headline2: TextStyle(
         fontSize: 18.0,
         fontWeight: FontWeight.bold,
-        color: CustomColor.fontWhite,
+        color: Palette.fontWhite,
       ),
-      bodyText1: TextStyle(fontSize: 16.0, color: CustomColor.fontWhite),
-      bodyText2: TextStyle(fontSize: 16.0, color: CustomColor.fontWhite),
+      bodyText1: TextStyle(fontSize: 16.0, color: Palette.fontWhite),
+      bodyText2: TextStyle(fontSize: 16.0, color: Palette.fontWhite),
       button: TextStyle(
-        color: CustomColor.fontWhite,
+        color: Palette.fontWhite,
         fontFamily: 'Roboto',
         fontWeight: FontWeight.w500,
         fontSize: 14,

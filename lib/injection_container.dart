@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:portfolio/src/core/network/api_service.dart';
+import 'package:portfolio/src/core/utils/sharedpref.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/datasources/profile_remote_local_datasource.dart';
 import 'package:portfolio/src/screens/profile/data/repositories/profile_repository_impl.dart';
@@ -26,6 +27,9 @@ Future<void> init() async {
       () => ProfileLocalDataSourceImpl(sharedPreferences: sl()));
   sl.registerLazySingleton<ProfileRemoteDataSource>(
       () => ProfileRemoteDataSourceImpl(apiService: sl()));
+
+// Utils
+  sl.registerLazySingleton<SharedPref>(() => SharedPrefImpl(prefs: sl()));
 
 // External
   final SharedPreferences sharedPreferences =

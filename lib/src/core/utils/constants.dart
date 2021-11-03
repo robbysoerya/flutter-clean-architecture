@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const String BASE_URL = 'https://api.bisain.id';
 const String IS_DARK_THEME = 'IS_DARK_THEME';
 
@@ -17,3 +19,16 @@ const String CV =
 // SharedPreferences
 const String PREF_NAME = 'myapp';
 const String PREF_THEME = 'theme';
+
+// Color
+
+class Palette {
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color fontBlack = Color(0xDE000000);
+  static const Color fontWhite = Color(0xDEFFFFFF);
+  static const Color logoBlue = Color(0xFF245f97);
+  static const Color textFieldBackground = Color(0x1E000000);
+  static const Color hintColor = Color(0x99000000);
+  static const Color statusBarColor = Color(0x1e000000);
+  static const Color snackBarColor = Colors.red;
+}

@@ -1,13 +1,19 @@
 import 'package:portfolio/src/core/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPref {
-  static late SharedPreferences _prefs;
+abstract class SharedPref {
+  int get getTheme;
+  void setTheme(int value);
+}
 
-  Future<void> init() async {
-    _prefs = await SharedPreferences.getInstance();
-  }
+class SharedPrefImpl extends SharedPref {
+  final SharedPreferences prefs;
 
-  int get getTheme => _prefs.getInt(PREF_THEME) ?? 0;
-  void setTheme(int value) => _prefs.setInt(PREF_THEME, value);
+  SharedPrefImpl({required this.prefs});
+
+  @override
+  int get getTheme => prefs.getInt(PREF_THEME) ?? 0;
+
+  @override
+  void setTheme(int value) => prefs.setInt(PREF_THEME, value);
 }

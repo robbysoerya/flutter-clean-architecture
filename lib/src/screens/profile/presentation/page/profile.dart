@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/injection_container.dart';
 import 'package:portfolio/src/core/theme/bloc/theme_bloc.dart';
 import 'package:portfolio/src/core/theme/theme.dart';
 import 'package:portfolio/src/core/utils/constants.dart';
@@ -31,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    _themeChoice = SharedPref().getTheme;
+    _themeChoice = sl<SharedPref>().getTheme;
     _themeEnum = convertToThemeEnum(_themeChoice!);
     _snackBar =
         CustomSnackBar(key: const Key('snackbar'), scaffoldKey: _scaffoldKey);
