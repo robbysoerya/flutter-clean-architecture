@@ -15,11 +15,18 @@ lib/
           network/
             api_service.dart
             network_info.dart
+          theme/
+            bloc/
+              theme_bloc.dart
+              theme_event.dart
+              theme_state.dart
+            theme.dart  
           usecases/
             usecase.dart
           utils/
             constants.dart
             router.dart
+            sharedpref.dart
             theme.dart
           widgets/
             custom_snackbar.dart                    
