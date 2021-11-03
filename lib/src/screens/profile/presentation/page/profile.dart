@@ -74,33 +74,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildListProjects(ProfileLoadSuccess state) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.2,
-      color: Theme.of(context).colorScheme.background,
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 20.0,
-            mainAxisSpacing: 20.0,
-            childAspectRatio: 2 / 1,
-            mainAxisExtent: 150,
-          ),
-          itemCount: state.projects.project.length,
-          itemBuilder: (context, index) {
-            return InkWell(
-                onTap: () => launch(state.projects.project[index].link),
-                child: Image.network(
-                  state.projects.project[index].image,
-                  width: 150,
-                ));
-          }),
-    );
-  }
-
   Widget _buildHeader() {
     return Container(
       padding: const EdgeInsets.fromLTRB(16.0, 48.0, 16.0, 48.0),
@@ -109,9 +82,10 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           Flexible(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 IconButton(
+                  alignment: Alignment.topRight,
                   onPressed: () {
                     BlocProvider.of<ThemeBloc>(context).add(ThemeChanged(
                         themeEnum: _themeEnum == ThemeEnum.LightTheme
@@ -170,6 +144,33 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildListProjects(ProfileLoadSuccess state) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.2,
+      color: Theme.of(context).colorScheme.background,
+      padding: const EdgeInsets.all(16.0),
+      child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 20.0,
+            mainAxisSpacing: 20.0,
+            childAspectRatio: 2 / 1,
+            mainAxisExtent: 150,
+          ),
+          itemCount: state.projects.project.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+                onTap: () => launch(state.projects.project[index].link),
+                child: Image.network(
+                  state.projects.project[index].image,
+                  width: 150,
+                ));
+          }),
     );
   }
 }
