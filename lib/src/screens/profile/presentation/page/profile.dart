@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    _themeChoice = SharedPref().getTheme!;
+    _themeChoice = SharedPref().getTheme;
     _themeEnum = convertToThemeEnum(_themeChoice!);
     _snackBar =
         CustomSnackBar(key: const Key('snackbar'), scaffoldKey: _scaffoldKey);

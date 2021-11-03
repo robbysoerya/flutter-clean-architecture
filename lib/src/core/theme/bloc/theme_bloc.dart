@@ -12,7 +12,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc()
       : super(ThemeState(
             themeData:
-                appThemeData[convertToThemeEnum(SharedPref().getTheme!)]!)) {
+                appThemeData[convertToThemeEnum(SharedPref().getTheme)]!)) {
     on<ThemeChanged>(_onThemeChanged);
   }
 

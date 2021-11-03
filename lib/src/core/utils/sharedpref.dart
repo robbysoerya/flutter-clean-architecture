@@ -8,6 +8,6 @@ class SharedPref {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  int? get getTheme => _prefs.getInt(PREF_THEME);
+  int get getTheme => _prefs.getInt(PREF_THEME) ?? 0;
   void setTheme(int value) => _prefs.setInt(PREF_THEME, value);
 }
