@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:portfolio/src/core/theme/bloc/theme_bloc.dart';
 import 'package:portfolio/src/core/utils/constants.dart';
 import 'package:portfolio/src/core/utils/router.dart' as x;
-import 'package:portfolio/src/core/utils/theme.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -13,6 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider<ThemeBloc>(
+      create: (context) => ThemeBloc(),
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: _buildWithTheme,
+      ),
+    );
+  }
+
+  Widget _buildWithTheme(BuildContext context, ThemeState state) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // Provide the generated AppLocalizations to the MaterialApp. This
@@ -38,7 +48,7 @@ class MyApp extends StatelessWidget {
           AppLocalizations.of(context)!.appTitle,
 
       // Define a light and dark color theme. Then, read the user's
-      theme: CustomTheme.mainTheme,
+      theme: state.themeData,
 
       // Define a function to handle named routes in order to support
       // Flutter web url navigation and deep linking.

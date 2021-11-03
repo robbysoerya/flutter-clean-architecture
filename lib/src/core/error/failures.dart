@@ -6,5 +6,3 @@ class Failures extends Equatable {
 }
 
 class ServerFailure extends Failures {}
-
-class NoConnectionFailure extends Failures {}

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/src/core/theme/bloc/theme_bloc.dart';
 import 'package:portfolio/src/core/utils/constants.dart';
+import 'package:portfolio/src/core/utils/sharedpref.dart';
 import 'package:portfolio/src/core/utils/theme.dart';
 import 'package:portfolio/src/core/widgets/custom_snackbar.dart';
 import 'package:portfolio/src/screens/profile/presentation/bloc/profile_bloc.dart';
@@ -17,6 +19,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   CustomSnackBar? _snackBar;
+  ThemeEnum? _themeEnum;
+  int? _themeChoice;
 
   @override
   void initState() {
@@ -26,10 +30,12 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    _themeChoice = SharedPref().getTheme!;
+    _themeEnum = convertToThemeEnum(_themeChoice!);
     _snackBar =
         CustomSnackBar(key: const Key('snackbar'), scaffoldKey: _scaffoldKey);
     return Scaffold(
-      backgroundColor: Colors.cyan[100],
+      backgroundColor: Theme.of(context).primaryColor,
       key: _scaffoldKey,
       body: _buildBody(context),
     );
@@ -71,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _buildListProjects(ProfileLoadSuccess state) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.2,
-      color: CustomColor.white,
+      color: Theme.of(context).colorScheme.background,
       padding: const EdgeInsets.all(16.0),
       child: GridView.builder(
           shrinkWrap: true,
@@ -98,13 +104,24 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _buildHeader() {
     return Container(
       padding: const EdgeInsets.fromLTRB(16.0, 48.0, 16.0, 48.0),
-      color: CustomColor.white,
+      color: Theme.of(context).colorScheme.background,
       child: Row(
         children: [
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                IconButton(
+                  onPressed: () {
+                    BlocProvider.of<ThemeBloc>(context).add(ThemeChanged(
+                        themeEnum: _themeEnum == ThemeEnum.LightTheme
+                            ? ThemeEnum.DarkTheme
+                            : ThemeEnum.LightTheme));
+                  },
+                  icon: _themeEnum == ThemeEnum.LightTheme
+                      ? const Icon(Icons.dark_mode)
+                      : const Icon(Icons.light_mode),
+                ),
                 CircleAvatar(
                   radius: 96.0,
                   child: ClipOval(

@@ -13,3 +13,7 @@ const String LINKEDIN = 'https://id.linkedin.com/in/robbysoerya';
 const String PROFILE_PHOTO = 'assets/images/me.jpeg';
 const String CV =
     'https://bisain.id/assets/assets/documents/CV_RobbySuryaPratama.pdf';
+
+// SharedPreferences
+const String PREF_NAME = 'myapp';
+const String PREF_THEME = 'theme';
