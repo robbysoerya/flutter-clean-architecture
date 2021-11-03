@@ -9,5 +9,5 @@ class SharedPref {
   }
 
   int? get getTheme => _prefs.getInt(PREF_THEME);
-  set setTheme(int value) => _prefs.setInt(PREF_THEME, value);
+  void setTheme(int value) => _prefs.setInt(PREF_THEME, value);
 }

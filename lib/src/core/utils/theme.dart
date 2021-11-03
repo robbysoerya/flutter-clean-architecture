@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/src/core/theme/theme.dart';
 
 class CustomColor {
   static const Color white = Color(0xFFFFFFFF);
@@ -81,11 +82,6 @@ class CustomTheme {
       ),
     ),
   );
-}
-
-enum ThemeEnum {
-  LightTheme,
-  DarkTheme,
 }
 
 final appThemeData = {

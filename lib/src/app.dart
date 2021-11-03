@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       onGenerateTitle: (BuildContext context) =>
           AppLocalizations.of(context)!.appTitle,
 
-      // Define a light and dark color theme. Then, read the user's
+      // Read theme by user configuration
       theme: state.themeData,
 
       // Define a function to handle named routes in order to support
