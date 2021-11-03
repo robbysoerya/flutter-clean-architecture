@@ -1,11 +1,11 @@
-import 'package:dio_http/adapter_browser.dart';
+import 'package:dio_http/adapter.dart';
 import 'package:dio_http/dio_http.dart';
 import 'package:portfolio/src/core/utils/constants.dart';
 import 'package:portfolio/src/screens/profile/data/models/profile_model.dart';
 
 class ApiService with DioMixin implements Dio {
   @override
-  HttpClientAdapter get httpClientAdapter => BrowserHttpClientAdapter();
+  HttpClientAdapter get httpClientAdapter => DefaultHttpClientAdapter();
 
   @override
   BaseOptions get options => BaseOptions(
