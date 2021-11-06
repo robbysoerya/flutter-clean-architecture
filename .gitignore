@@ -23,3 +23,5 @@ doc/api/
 # Generated files
 *.g.dart
 lib/generated_plugin_registrant.dart
+.flutter-plugins
+.flutter-plugins-dependencies
